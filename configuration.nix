@@ -29,6 +29,8 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.nameservers = [ "127.0.0.1" "10.0.0.69" ];
+  networking.resolvconf.enable = false;
   boot.kernelPackages = pkgs.linuxPackages_6_5; # pkgs.linuxPackages_latest; (cannot use latest yet)
   boot.extraModulePackages = with config.boot.kernelPackages; [
     rtl8812au
