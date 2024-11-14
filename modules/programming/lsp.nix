@@ -17,5 +17,6 @@
     gopls
     delve
     ghc
+    bear # this is for clangd.
   ];
 }

@@ -76,14 +76,14 @@
     lt = "eza -TL2";
     lal = "eza -oal --icons";
   };
-  programs.fish.shellInit = ''
-    if test "$TERM" = "xterm-kitty"
-      # kitty +kitten icat ~/.config/neofetch/cute-kitty-resized.png
-      tmux new-session
-    else
-      ~/.config/evangelion.sh
-    end
-  '';
+  # programs.fish.shellInit = ''
+  #   if test "$TERM" = "xterm-kitty"
+  #     # kitty +kitten icat ~/.config/neofetch/cute-kitty-resized.png
+  #     tmux new-session
+  #   else
+  #     ~/.config/evangelion.sh
+  #   end
+  # '';
   # programs.wireshark.enable = true;
   programs.steam.enable = true;
 
