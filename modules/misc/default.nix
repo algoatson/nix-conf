@@ -16,6 +16,7 @@
     uget gabutdm
     vulkan-tools
     vulkan-headers
+    appimage-run
   ];
 
 }

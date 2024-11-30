@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  networking.nameservers = [ "10.0.0.69" "127.0.0.1" ];
+  networking.nameservers = [ "10.0.0.69" ]; # 127.0.0.1
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {

@@ -5,6 +5,8 @@
     ./fish.nix
   ];
 
+  programs.zsh.enable = false;
+
   # wezterm can be used to set window class title
   # command = "wezterm start --always-new-process --class wezterm_scratchpad"
   environment.systemPackages = with pkgs; [
@@ -27,5 +29,6 @@
     rsclock
     cava
     tree
+    yazi
   ];
 }

@@ -145,7 +145,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "alacritty"    -- Sets default terminal
+myTerminal = "kitty"    -- Sets default terminal
 
 myBrowser :: String
 myBrowser = "qutebrowser "  -- Sets qutebrowser as browser
@@ -155,7 +155,7 @@ myEmacs = "emacsclient -c -a 'emacs' "  -- Makes emacs keybindings easier to typ
 
 myEditor :: String
 -- myEditor = "emacsclient -c -a 'emacs' "  -- Sets emacs as editor
-myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
+myEditor = myTerminal ++ " -e nvim "    -- Sets vim as editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
@@ -176,7 +176,7 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce (mySoundPlayer ++ startupSound)
   -- spawn "killall conky"                    -- kill current conky on each restart
-  spawn "killall xmobar" -- adding this in case of switching between xmobar and polybar.
+  -- spawn "killall xmobar" -- adding this in case of switching between xmobar and polybar.
   -- spawn "killall trayer" -- adding this in case of switching between xmobar and polybar.
   spawnOnce "lxsession"
   spawnOnce "picom -c --shadow-exclude 'class_g = \"Polybar\"' --shadow-exclude 'class_g = \"VirtualBoxVM\"' --backend glx --corner-radius 10"
@@ -185,13 +185,14 @@ myStartupHook = do
   spawnOnce "nm-applet"
   spawnOnce "volumeicon"
   spawnOnce "notify-log $HOME/.log/notify.log"
-  spawn "emacs --daemon" -- emacs daemon for the emacsclient
+  -- spawn "emacs --daemon" -- emacs daemon for the emacsclient
   spawn "polybar -c /etc/nixos/modules/toolbars/polybar/space/config.ini top"
   -- spawn "/etc/nixos/modules/toolbars/polybar/launch.sh --hack"
   spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
   -- spawnOnce "unclutter -idle 1 &"
   spawnOnce "xrdb -merge ~/.Xresources"
   spawnOnce "xsetroot -cursor_name left_ptr"
+  -- spawnOnce myTerminal ++ " -T weechat -e weechat"
   -- We killed any running conky processes earlier in the autostart,
   -- so now we sleep for 2 seconds and then restart conky.
   -- spawn "polybar --config=/etc/polybar/hack/config.ini top"
@@ -202,7 +203,7 @@ myStartupHook = do
   -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
   -- spawnOnce "feh --randomize --bg-fill /usr/share/backgrounds/dtos-backgrounds/*"  -- feh set random wallpaper
   -- setDefaultCursor xC_pirate
-  -- setWMName "LG3D"
+  setWMName "LG3D"
 
 myNavigation :: TwoD a (Maybe a)
 myNavigation = makeXEventhandler $ shadowWithKeymap navKeyMap navDefaultHandler
@@ -379,6 +380,7 @@ myScratchPads =
   , NS "slack" spawnSlack findSlack manageSlack
   , NS "thunderbird" spawnMail findMail manageMail
   , NS "pavucontrol" spawnPavu findPavu managePavu
+  , NS "weechat" spawnWeechat findWeechat manageWeechat
   ]
   where
     --spawnTerm  = myTerminal ++ " --t scratchpad"
@@ -386,6 +388,14 @@ myScratchPads =
     spawnTerm = myTerminal ++ " --title alacritty-scratchpad"
     findTerm   = title =? "alacritty-scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.9
+        w = 0.9
+        t = 0.95 -h
+        l = 0.95 -w
+    spawnWeechat = myTerminal ++ " --title weechat -e weechat"
+    findWeechat  = title =? "weechat"
+    manageWeechat = customFloating $ W.RationalRect l t w h
       where
         h = 0.9
         w = 0.9
@@ -447,7 +457,7 @@ myScratchPads =
         w = 0.9
         t = 0.95 -h
         l = 0.95 -w
-    spawnMocp  = myTerminal ++ " -t mocp -e mocp"
+    spawnMocp  = myTerminal ++ " -T mocp -e mocp"
     findMocp   = title =? "mocp"
     manageMocp = customFloating $ W.RationalRect l t w h
       where
@@ -805,6 +815,7 @@ myKeys c =
     -- Toggle them to hide and it sends them back to hidden workspace (NSP).
     ^++^ subKeys "Scratchpads"
     [ ("M-s t", addName "Toggle scratchpad terminal"   $ namedScratchpadAction myScratchPads "terminal")
+    , ("M-s w", addName "Toggle weechat terminal"      $ namedScratchpadAction myScratchPads "weechat")
     , ("M-s m", addName "Toggle scratchpad mocp"       $ namedScratchpadAction myScratchPads "mocp")
     , ("M-s o", addName "Toggle scratchpad obsidian"   $ namedScratchpadAction myScratchPads "obsidian")
     , ("M-s e", addName "Toggle scratchpad thunderbird" $ namedScratchpadAction myScratchPads "thunderbird")
