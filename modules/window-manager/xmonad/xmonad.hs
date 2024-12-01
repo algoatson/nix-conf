@@ -161,10 +161,10 @@ myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
 
 myNormColor :: String       -- Border color of normal windows
-myNormColor   = "#8edf5f" -- "#51bcfe" -- "#af00ff" -- "#552299" -- colorBack   -- This variable is imported from Colors.THEME
+myNormColor   = "#7aa2f7"-- "#8edf5f" -- "#51bcfe" -- "#af00ff" -- "#552299" -- colorBack   -- This variable is imported from Colors.THEME
 
 myFocusColor :: String      -- Border color of focused windows
-myFocusColor  = "#8edf5f" -- "#af00ff"     -- This variable is imported from Colors.THEME
+myFocusColor  = "#7aa2f7" -- "#8edf5f" -- "#af00ff"     -- This variable is imported from Colors.THEME
 
 mySoundPlayer :: String
 mySoundPlayer = "ffplay -nodisp -autoexit " -- The program that will play system sounds
@@ -179,7 +179,7 @@ myStartupHook = do
   -- spawn "killall xmobar" -- adding this in case of switching between xmobar and polybar.
   -- spawn "killall trayer" -- adding this in case of switching between xmobar and polybar.
   spawnOnce "lxsession"
-  spawnOnce "picom -c --shadow-exclude 'class_g = \"Polybar\"' --shadow-exclude 'class_g = \"VirtualBoxVM\"' --backend glx --corner-radius 10"
+  spawnOnce "picom -c --rounded-corners-exclude 'class_g = \"dmenu\"' --shadow-exclude 'class_g =\"dmenu\"' --shadow-exclude 'class_g = \"Polybar\"' --shadow-exclude 'class_g = \"VirtualBoxVM\"' --backend glx --corner-radius 10"
   -- spawnOnce "xborders"
   spawnOnce "dunst"
   spawnOnce "nm-applet"
@@ -385,8 +385,8 @@ myScratchPads =
   where
     --spawnTerm  = myTerminal ++ " --t scratchpad"
     --spawnTerm = "terminator -t scratchpad"
-    spawnTerm = myTerminal ++ " --title alacritty-scratchpad"
-    findTerm   = title =? "alacritty-scratchpad"
+    spawnTerm = myTerminal ++ " --title terminal-scratchpad -e tmux"
+    findTerm   = title =? "terminal-scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
       where
         h = 0.9
@@ -694,7 +694,7 @@ myKeys c =
     , ("M-S-q", addName "Quit XMonad"            $ spawn "dm-logout")
     , ("M-S-c", addName "Kill focused window"    $ kill1)
     , ("M-S-a", addName "Kill all windows on WS" $ killAll)
-    , ("M-S-<Return>", addName "Run prompt"      $ sequence_ [spawn (mySoundPlayer ++ dmenuSound), spawn "dmenu_run -nb '#000000' -sf '#eeeeee' -sb '#552299' -nf '#ffffff'"])
+    , ("M-S-<Return>", addName "Run prompt"      $ sequence_ [spawn (mySoundPlayer ++ dmenuSound), spawn "dmenu_run -nb '#292e42' -sf '#eeeeee' -sb '#7aa2f7' -nf '#ffffff'"])
     , ("M-S-b", addName "Toggle bar show/hide"   $ sendMessage ToggleStruts)]
 
     ^++^ subKeys "Switch to workspace"
