@@ -5,6 +5,7 @@
     packages = with pkgs; [
       # (nerdfonts.override { fonts = [ "Agave" "JetBrainsMono" "FiraCode" ]; })
       nerdfonts
+      iosevka
       inter
       noto-fonts
       noto-fonts-emoji

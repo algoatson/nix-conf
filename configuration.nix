@@ -134,7 +134,10 @@
     tldr
     xorg.xinit
     xorg.xrdb
-    (python311.withPackages (ps: with ps; [ angr pypresence pip pwntools matplotlib pandas numpy pyyaml coloredlogs pypresence rpyc ]))
+    protonup-ng
+    protonup-qt
+    protonplus
+  (python311.withPackages (ps: with ps; [ pypresence pip pwntools matplotlib pandas numpy pyyaml coloredlogs pypresence rpyc ]))
   ];
 
   environment.variables = {
@@ -179,9 +182,9 @@
   programs.tmux.enable = true;
   programs.tmux.extraConfig = ''
   # set -as terminal-features ",*:RGB"
-  # set -ag terminal-overrides ",xterm-256color:RGB"
+  set -ag terminal-overrides ",tmux-256color:RGB"
   set-option -g allow-passthrough on
-  # set -g default-terminal "screen-256color"
+  set -g default-terminal "tmux-256color"
   # Fix Colors
   # set -g default-terminal "screen-256color"
   # set -as terminal-features ",xterm-256color:RGB"
@@ -250,7 +253,8 @@
   set -g @prefix_highlight_output_suffix ""
 
   '';
-  # programs.tmux.terminal = "tmux-256color";
+
+  programs.tmux.terminal = "tmux-256color";
   # programs.tmux.extraConfig = ''
     # set-default colorset-option -ga terminal-overrides ",xterm-256color:Tc"
     # Fix Colors

@@ -3,8 +3,10 @@
 {
   services.xserver = {
     videoDrivers = ["nvidia"];
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   services.xserver.displayManager.gdm.enable = true;

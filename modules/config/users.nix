@@ -36,9 +36,8 @@
       # Social Media
       discord
       element
-      qtox
+      # qtox
       # File Managers
-      gnome.nautilus
       # Password Managers
       keepassxc
       # Note-Taking Software
@@ -90,7 +89,7 @@
       pe-bear
       git-credential-manager
       # Databases
-      mysql
+      mariadb
       # Wordlists
       crunch
       cewl
@@ -123,7 +122,7 @@
       # Others
       asciinema
       flameshot
-      gnome.nautilus
+      nautilus
       libsForQt5.okular
       ffmpeg-full
       bat
@@ -191,7 +190,7 @@
       glib
       librewolf-unwrapped
       clang_18 clang-tools ltex-ls zathura
-      ctags codeium efm-langserver lldb_12
+      ctags codeium efm-langserver # lldb_12
       nerdfonts fd linuxHeaders latexrun
 
     ];

@@ -56,7 +56,7 @@
     #   };
     # };
     nat = {
-      enable = true;
+      enable = false;
       internalInterfaces = [ "wpl0s20f0u8" ]; # "veth0";
       externalInterface = "wg0";
     };
@@ -77,7 +77,7 @@
     atftp
     bandwhich
     bngblaster
-    crackmapexec
+    netexec
     evillimiter
     iperf2
     iputils

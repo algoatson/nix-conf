@@ -1,4 +1,4 @@
--- Base
+--  Base
 import XMonad
 import System.Directory
 import System.IO (hClose, hPutStr, hPutStrLn)
@@ -90,7 +90,7 @@ import XMonad.Util.Cursor
 -- colorScheme = "doom-one"
 
 colorBack = "#0c0c0c" -- "#000000"
-colorFore = "#5f0087" -- "#bbc2cf"
+olorFore = "#5f0087" -- "#bbc2cf"
 
 -- color00 = "#0c0c0c"
 -- color01 = "#897373" -- "#1c1f24"
@@ -139,7 +139,7 @@ colorTrayer :: String
 colorTrayer = "--tint 0x282c34"
 
 myFont :: String
-myFont = "xft:SauceCodePro Nerd Font Mono:regular:size=9:antialias=true:hinting=true"
+myFont = "xft:Hurmit Nerd Font Mono:regular:size=9:antialias=true:hinting=true"
 -- myFont = "Terminus style=Regular:size=9"
 myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
@@ -196,7 +196,7 @@ myStartupHook = do
   -- We killed any running conky processes earlier in the autostart,
   -- so now we sleep for 2 seconds and then restart conky.
   -- spawn "polybar --config=/etc/polybar/hack/config.ini top"
--- spawnOnce "sleep 2 && xmonad --restart"
+  -- spawnOnce "sleep 2 && xmonad --restart"
   -- spawn ("sleep 3 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
   -- Select only =ONE= of the following four ways to set the wallpaper.
   -- spawnOnce "xargs xwallpaper --stretch < ~/.cache/wall"
@@ -347,26 +347,26 @@ gsSettings =
 
 gsSystem =
   [ ("Alacritty", "alacritty")
-  , ("Bash", (myTerminal ++ " -e bash"))
-  , ("Htop", (myTerminal ++ " -e htop"))
-  , ("Fish", (myTerminal ++ " -e fish"))
+  , ("Bash", myTerminal ++ " -e bash")
+  , ("Htop", myTerminal ++ " -e htop")
+  , ("Fish", myTerminal ++ " -e fish")
   , ("PCManFM", "pcmanfm")
   , ("VirtualBox", "virtualbox")
   , ("Virt-Manager", "virt-manager")
-  , ("Zsh", (myTerminal ++ " -e zsh"))
+  , ("Zsh", myTerminal ++ " -e zsh")
   ]
 
 gsUtilities =
   [ ("Emacs", "emacs")
   , ("Emacsclient", "emacsclient -c -a 'emacs'")
   , ("Nitrogen", "nitrogen")
-  , ("Vim", (myTerminal ++ " -e vim"))
+  , ("Vim", myTerminal ++ " -e vim")
   ]
 
 myScratchPads :: [NamedScratchpad]
 myScratchPads =
   [ NS "terminal" spawnTerm findTerm manageTerm
-  , NS "mocp" spawnMocp findMocp manageMocp
+  , NS "cantata" spawnCantata findCantata manageCantata
   , NS "calculator" spawnCalc findCalc manageCalc
   , NS "obsidian" spawnObsid findObsid manageObsid
   , NS "vencord" spawnVencord findVencord manageVencord
@@ -381,10 +381,10 @@ myScratchPads =
   , NS "thunderbird" spawnMail findMail manageMail
   , NS "pavucontrol" spawnPavu findPavu managePavu
   , NS "weechat" spawnWeechat findWeechat manageWeechat
+  , NS "qtox" spawnQtox findQtox manageQtox
+  , NS "zfxtop" spawnZfxtop findZfxtop manageZfxtop
   ]
   where
-    --spawnTerm  = myTerminal ++ " --t scratchpad"
-    --spawnTerm = "terminator -t scratchpad"
     spawnTerm = myTerminal ++ " --title terminal-scratchpad -e tmux"
     findTerm   = title =? "terminal-scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
@@ -396,6 +396,22 @@ myScratchPads =
     spawnWeechat = myTerminal ++ " --title weechat -e weechat"
     findWeechat  = title =? "weechat"
     manageWeechat = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.9
+        w = 0.9
+        t = 0.95 -h
+        l = 0.95 -w
+    spawnZfxtop = myTerminal ++ " --title zfxtop-scratchpad -e zfxtop"
+    findZfxtop = title =? "zfxtop-scratchpad"
+    manageZfxtop = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.6
+        w = 0.5
+        t = 0.75 -h
+        l = 0.70 -w
+    spawnQtox = "qtox"
+    findQtox = className =? "qTox"
+    manageQtox = customFloating $ W.RationalRect l t w h
       where
         h = 0.9
         w = 0.9
@@ -457,16 +473,16 @@ myScratchPads =
         w = 0.9
         t = 0.95 -h
         l = 0.95 -w
-    spawnMocp  = myTerminal ++ " -T mocp -e mocp"
-    findMocp   = title =? "mocp"
-    manageMocp = customFloating $ W.RationalRect l t w h
+    spawnCantata  = "cantata"
+    findCantata   = className =? "cantata"
+    manageCantata = customFloating $ W.RationalRect l t w h
       where
         h = 0.9
         w = 0.9
         t = 0.95 -h
         l = 0.95 -w
-    spawnDiscord  = "discord"
-    findDiscord   = className =? "discord"
+    spawnDiscord  = "vesktop"
+    findDiscord   = className =? "vesktop"
     manageDiscord = customFloating $ W.RationalRect l t w h
       where
         h = 0.9
@@ -527,7 +543,7 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 -- limitWindows n sets maximum number of windows displayed for layout.
 -- mySpacing n sets the gap size around the windows.
 tall     = renamed [Replace "tall"]
-         $ limitWindows 5
+         $ limitWindows 8
          $ smartBorders
          $ windowNavigation
          $ addTabs shrinkText myTabTheme
@@ -658,6 +674,7 @@ myManageHook = composeAll
   , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
   , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
   , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
+  -- , className =? "zfxtop"    --> doFloat
   -- , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
   , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
   , isFullscreen -->  doFullFloat
@@ -734,6 +751,9 @@ myKeys c =
     , ("M-S-,", addName "Rotate all windows except master"       $ rotSlavesDown)
     , ("M-S-.", addName "Rotate all windows current stack"       $ rotAllDown)]
 
+    ^++^ subKeys "Menus"
+    [ ("M-<Tab>", addName "open jgmenu" $ spawn "jgmenu --config-file=/etc/nixos/modules/themes/jgmenu.csv") ]
+
     -- Dmenu scripts (dmscripts)
     -- In Xmonad and many tiling window managers, M-p is the default keybinding to
     -- launch dmenu_run, so I've decided to use M-p plus KEY for these dmenu scripts.
@@ -766,7 +786,7 @@ myKeys c =
 
     -- Switch layouts
     ^++^ subKeys "Switch layouts"
-    [ ("M-<Tab>", addName "Switch to next layout"   $ sendMessage NextLayout)
+    [ ("M-S-<Tab>", addName "Switch to next layout"   $ sendMessage NextLayout)
     , ("M-<Space>", addName "Toggle noborders/full" $ sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts)]
 
     -- Window resizing
@@ -816,8 +836,9 @@ myKeys c =
     ^++^ subKeys "Scratchpads"
     [ ("M-s t", addName "Toggle scratchpad terminal"   $ namedScratchpadAction myScratchPads "terminal")
     , ("M-s w", addName "Toggle weechat terminal"      $ namedScratchpadAction myScratchPads "weechat")
-    , ("M-s m", addName "Toggle scratchpad mocp"       $ namedScratchpadAction myScratchPads "mocp")
+    , ("M-s m", addName "Toggle scratchpad cantata"       $ namedScratchpadAction myScratchPads "cantata")
     , ("M-s o", addName "Toggle scratchpad obsidian"   $ namedScratchpadAction myScratchPads "obsidian")
+    , ("M-s q", addName "Toggle scratchpad qtox" $ namedScratchpadAction myScratchPads "qtox")
     , ("M-s e", addName "Toggle scratchpad thunderbird" $ namedScratchpadAction myScratchPads "thunderbird")
     , ("M-s x", addName "Toggle scratchpad code"   $ namedScratchpadAction myScratchPads "code")
     , ("M-s f", addName "Toggle scratchpad slack"    $ namedScratchpadAction myScratchPads "slack")
@@ -826,16 +847,17 @@ myKeys c =
     , ("M-s v", addName "Toggle scratchpad virtualbox"    $ namedScratchpadAction myScratchPads "virtualbox")
     , ("M-s s", addName "Toggle scratchpad keepassxc"    $ namedScratchpadAction myScratchPads "keepassxc")
     , ("M-s p", addName "Toggle scratchpad okular"    $ namedScratchpadAction myScratchPads "okular")
+    , ("M-s z", addName "Toggle scratchpad zfxtop" $ namedScratchpadAction myScratchPads "zfxtop")
     , ("M-d",   addName "Toggle scratchpad draw.io" $ namedScratchpadAction myScratchPads "drawio")
     , ("M-p", addName "Toggle scratchpad pavucontrol" $ namedScratchpadAction myScratchPads "pavucontrol")
     , ("M-<Escape>", addName "Toggle scratchpad calculator" $ namedScratchpadAction myScratchPads "calculator")]
 
-    -- Controls for mocp music player (SUPER-u followed by a key)
-    ^++^ subKeys "Mocp music player"
-    [ ("M-u p", addName "mocp play"                $ spawn "mocp --play")
-    , ("M-u l", addName "mocp next"                $ spawn "mocp --next")
-    , ("M-u h", addName "mocp prev"                $ spawn "mocp --previous")
-    , ("M-u <Space>", addName "mocp toggle pause"  $ spawn "mocp --toggle-pause")]
+    -- Controls for mpc music player (SUPER-u followed by a key)
+    ^++^ subKeys "Mpc music player"
+    [ ("M-u s", addName "mpc play"                $ spawn "mpc play")
+    , ("M-u n", addName "mpc next"                $ spawn "mpc next")
+    , ("M-u p", addName "mpc prev"                $ spawn "mpc prev")
+    , ("M-u <Space>", addName "mpc toggle pause"  $ spawn "mpc toggle")]
 
     ^++^ subKeys "GridSelect"
     -- , ("C-g g", addName "Select favorite apps"     $ runSelectedAction' defaultGSConfig gsCategories)
@@ -869,13 +891,13 @@ myKeys c =
 
     -- Multimedia Keys
     ^++^ subKeys "Multimedia keys"
-    [ ("<XF86AudioPlay>", addName "mocp play"           $ spawn "mocp --play")
-    , ("<XF86AudioPrev>", addName "mocp next"           $ spawn "mocp --previous")
-    , ("<XF86AudioNext>", addName "mocp prev"           $ spawn "mocp --next")
+    [ ("<XF86AudioPlay>", addName "mpc play"           $ spawn "mpc play")
+    , ("<XF86AudioPrev>", addName "mpc next"           $ spawn "mpc prev")
+    , ("<XF86AudioNext>", addName "mpc prev"           $ spawn "mpc next")
     , ("<XF86AudioMute>", addName "Toggle audio mute"   $ spawn "amixer set Master toggle")
     , ("<XF86AudioLowerVolume>", addName "Lower vol"    $ spawn "amixer set Master 5%- unmute")
     , ("<XF86AudioRaiseVolume>", addName "Raise vol"    $ spawn "amixer set Master 5%+ unmute")
-    , ("<XF86HomePage>", addName "Open home page"       $ spawn (myBrowser ++ " https://blog.i-eat-sponges.com"))
+    , ("<XF86HomePage>", addName "Open home page"       $ spawn (myBrowser ++ " https://acid.cat"))
     , ("<XF86Search>", addName "Web search (dmscripts)" $ spawn "dm-websearch")
     , ("<XF86Mail>", addName "Email client"             $ runOrRaise "thunderbird" (resource =? "thunderbird"))
     , ("<XF86Calculator>", addName "Calculator"         $ runOrRaise "qalculate-gtk" (resource =? "qalculate-gtk"))

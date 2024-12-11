@@ -1,0 +1,9 @@
+csv_single_window=1
+columns=1
+menu_width=600
+menu_border=2
+menu_radius=10
+menu_valign=center
+menu_halign=center
+color_menu_bg = #1a1b26 75
+color_menu_border = #7aa2f7 100

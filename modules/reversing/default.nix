@@ -1,9 +1,11 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # ida-free -- broken
+    ida-free
     ghidra
-    radare2
+    cutter
+    radare2 # r2
+    iaito   # gui for radare2
   ];
 
 }

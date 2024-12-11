@@ -5,7 +5,7 @@
     ./music.nix
   ];
 
-  sound.enable = true;
+  # sound.enable = true;
   # pulse audio
   hardware.pulseaudio.enable = false;
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";

@@ -38,5 +38,18 @@
     gpu-viewer
     dig
     speedtest-rs
+    fetch-scm
+    gau
+    tinyfetch
+    microfetch
+    screenfetch
+    nerdfetch
+    profetch
+    rfc
+    macchina
+    pridefetch
+    pfetch-rs
+    hyfetch
+    freshfetch
   ];
 }

@@ -54,9 +54,11 @@
     catppuccin-cursors.macchiatoLavender
     themechanger
     xsettingsd
-    gnome.gnome-tweaks
-    gnome.gnome-shell
-    gnome.gnome-shell-extensions
+    gnome-tweaks
+    gnome-shell
+    gnome-shell-extensions
+    jgmenu
+    conky
   ];
 
   systemd.user.services.xsettingsd = {

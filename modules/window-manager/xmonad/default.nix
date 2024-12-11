@@ -5,8 +5,10 @@
     enable = true;
     videoDrivers = ["nvidia"];
     # videoDrivers = ["nouveau"];
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
 
     windowManager = {
       xmonad = {
