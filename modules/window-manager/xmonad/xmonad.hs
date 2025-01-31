@@ -383,6 +383,7 @@ myScratchPads =
   , NS "weechat" spawnWeechat findWeechat manageWeechat
   , NS "qtox" spawnQtox findQtox manageQtox
   , NS "zfxtop" spawnZfxtop findZfxtop manageZfxtop
+  , NS "ncmpcpp" spawnNcmpcpp findNcmpcpp manageNcmpcpp
   ]
   where
     spawnTerm = myTerminal ++ " --title terminal-scratchpad -e tmux"
@@ -401,12 +402,20 @@ myScratchPads =
         w = 0.9
         t = 0.95 -h
         l = 0.95 -w
+    spawnNcmpcpp = myTerminal ++ " --title ncmpcpp-scratchpad -e ncmpcpp"
+    findNcmpcpp = title =? "ncmpcpp-scratchpad"
+    manageNcmpcpp = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.9
+        w = 0.9
+        t = 0.95 -h
+        l = 0.95 -w
     spawnZfxtop = myTerminal ++ " --title zfxtop-scratchpad -e zfxtop"
     findZfxtop = title =? "zfxtop-scratchpad"
     manageZfxtop = customFloating $ W.RationalRect l t w h
       where
-        h = 0.6
-        w = 0.5
+        h = 0.7
+        w = 0.7
         t = 0.75 -h
         l = 0.70 -w
     spawnQtox = "qtox"
@@ -752,7 +761,7 @@ myKeys c =
     , ("M-S-.", addName "Rotate all windows current stack"       $ rotAllDown)]
 
     ^++^ subKeys "Menus"
-    [ ("M-<Tab>", addName "open jgmenu" $ spawn "jgmenu --config-file=/etc/nixos/modules/themes/jgmenu.csv") ]
+    [ ("M-<Tab>", addName "open jgmenu" $ spawn "jgmenu_run --config-file=/etc/nixos/modules/themes/jgmenu.csv") ]
 
     -- Dmenu scripts (dmscripts)
     -- In Xmonad and many tiling window managers, M-p is the default keybinding to
@@ -848,6 +857,7 @@ myKeys c =
     , ("M-s s", addName "Toggle scratchpad keepassxc"    $ namedScratchpadAction myScratchPads "keepassxc")
     , ("M-s p", addName "Toggle scratchpad okular"    $ namedScratchpadAction myScratchPads "okular")
     , ("M-s z", addName "Toggle scratchpad zfxtop" $ namedScratchpadAction myScratchPads "zfxtop")
+    , ("M-s c", addName "Toggle scratchpad ncmpcpp" $ namedScratchpadAction myScratchPads "ncmpcpp")
     , ("M-d",   addName "Toggle scratchpad draw.io" $ namedScratchpadAction myScratchPads "drawio")
     , ("M-p", addName "Toggle scratchpad pavucontrol" $ namedScratchpadAction myScratchPads "pavucontrol")
     , ("M-<Escape>", addName "Toggle scratchpad calculator" $ namedScratchpadAction myScratchPads "calculator")]
@@ -877,7 +887,7 @@ myKeys c =
 
     -- Emacs (SUPER-e followed by a key)
     ^++^ subKeys "Emacs"
-    [("M-e e", addName "Emacsclient"               $ spawn (myEmacs))
+    [ ("M-e e", addName "Emacsclient"               $ spawn (myEmacs))
     -- ("M-e e", addName "Emacsclient Dashboard"    $ spawn (myEmacs ++ ("--eval '(dashboard-refresh-buffer)'")))
     , ("M-e a", addName "Emacsclient EMMS (music)" $ spawn (myEmacs ++ ("--eval '(emms)' --eval '(emms-play-directory-tree \"~/Music/\")'")))
     , ("M-e b", addName "Emacsclient Ibuffer"      $ spawn (myEmacs ++ ("--eval '(ibuffer)'")))

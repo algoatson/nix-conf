@@ -1,0 +1,110 @@
+18:36:26.190 [ATL-Logging-Thread] INFO  - Organising filesystem
+
+18:36:26.314 [ATL-Logging-Thread] INFO  - ATLauncher Version: 3.4.38.0 [96f4954bb82246aab3047b3b6e9b4936eb312778]
+
+18:36:26.318 [ATL-Logging-Thread] INFO  - App Arguments: ["--working-dir","**USERSDIR**","--no-launcher-update"]
+
+18:36:26.321 [ATL-Logging-Thread] INFO  - JVM Arguments: []
+
+18:36:26.325 [ATL-Logging-Thread] INFO  - Java Version: Java 21 (21.0.5)
+
+18:36:26.328 [ATL-Logging-Thread] INFO  - Java Path: /nix/store/f042x32jfm94d3cgaga8d6xl8vy6sg46-openjdk-21.0.5+11/lib/openjdk
+
+18:36:26.363 [ATL-Logging-Thread] INFO  - 64 Bit Java: true
+
+18:36:26.369 [ATL-Logging-Thread] INFO  - RAM Available: 28034MB
+
+18:36:26.382 [ATL-Logging-Thread] INFO  - Launcher Directory: **USERSDIR**
+
+18:36:26.399 [ATL-Logging-Thread] INFO  - GPU: unknown (unknown) unknown 0MB VRAM
+
+18:36:26.481 [ATL-Logging-Thread] INFO  - CPU: Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz 4 cores/8 threads
+
+18:36:26.481 [ATL-Logging-Thread] INFO  - Operating System: NixOS (24.11 (Vicuna) build 6.6.63)
+
+18:36:26.482 [ATL-Logging-Thread] INFO  - Bitness: 64
+
+18:36:26.482 [ATL-Logging-Thread] INFO  - Uptime: 183637
+
+18:36:26.483 [ATL-Logging-Thread] INFO  - Manufacturer: GNU/Linux
+
+18:36:26.483 [ATL-Logging-Thread] INFO  - Showing splash screen and loading everything
+
+18:36:26.484 [ATL-Logging-Thread] INFO  - Checking for updated files!
+
+18:36:33.413 [ATL-Logging-Thread] INFO  - Finished downloading updated files!
+
+18:36:53.645 [ATL-Logging-Thread] INFO  - Launcher finished loading everything
+
+18:36:53.647 [ATL-Logging-Thread] WARN  - Launcher not setup. Loading Setup Dialog
+
+18:36:54.288 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+18:36:54.293 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+18:36:54.298 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+18:36:54.304 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+18:36:54.309 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+18:36:54.310 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+18:36:54.313 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+18:36:54.315 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+18:36:54.318 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+18:36:54.322 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+18:36:58.472 [ATL-Logging-Thread] INFO  - Launcher opening
+
+18:36:58.473 [ATL-Logging-Thread] INFO  - Made By Bob*
+
+18:36:58.473 [ATL-Logging-Thread] INFO  - *(Not Actually)
+
+18:36:58.474 [ATL-Logging-Thread] INFO  - Setting up Bottom Bar
+
+18:36:58.518 [ATL-Logging-Thread] INFO  - Finished Setting up Bottom Bar
+
+18:36:58.521 [ATL-Logging-Thread] INFO  - Setting up Tabs
+
+18:36:59.069 [ATL-Logging-Thread] INFO  - Finished Setting up Tabs
+
+18:36:59.079 [ATL-Logging-Thread] INFO  - Showing Launcher
+
+18:37:06.056 [ATL-Logging-Thread] ERROR - Error on GraphQL query
+
+18:37:06.057 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+
+18:37:06.058 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+
+18:37:06.062 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+
+18:37:06.064 [ATL-Logging-Thread] ERROR - 	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+
+18:37:06.066 [ATL-Logging-Thread] ERROR - 	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+
+18:37:06.068 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+
+18:37:06.070 [ATL-Logging-Thread] ERROR - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+
+18:37:06.072 [ATL-Logging-Thread] ERROR - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+18:37:06.073 [ATL-Logging-Thread] ERROR - com.apollographql.apollo.exception.ApolloHttpException: HTTP 403 Forbidden
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor.parse(ApolloParseInterceptor.java:108)
+	at com.apollographql.apollo.internal.interceptor.ApolloParseInterceptor$1.onResponse(ApolloParseInterceptor.java:53)
+	at com.apollographql.apollo.internal.interceptor.ApolloServerInterceptor$executeHttpCall$1.onResponse(ApolloServerInterceptor.kt:114)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+

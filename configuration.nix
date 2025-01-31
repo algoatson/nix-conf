@@ -38,6 +38,7 @@
       ./modules/animation
       ./modules/emulator
       ./modules/programming
+      ./modules/games
       # ./modules/editors
       # ./modules/window-manager/wayland
       # ./modules/gnome.nix
@@ -53,7 +54,6 @@
   # services.xserver.desktopManager.gnome.enable = true;
 
   # services.displayManager.sddm.enable = true;
-
   # services.plex = {
   #   enable = true;
   #   openFirewall = true;
@@ -98,10 +98,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    nss
     wget
     ytfzf
     input-leap # software-kvm switch
     most
+    git
     moc
     qalculate-gtk
     gimp
@@ -137,6 +139,8 @@
     protonup-ng
     protonup-qt
     protonplus
+    jdk23
+    jre8
   (python311.withPackages (ps: with ps; [ pypresence pip pwntools matplotlib pandas numpy pyyaml coloredlogs pypresence rpyc ]))
   ];
 

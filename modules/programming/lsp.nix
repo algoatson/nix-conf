@@ -15,6 +15,8 @@
     sumneko-lua-language-server
     marksman
     nil
+    nixd
+    nixfmt-classic
     zls
     gopls
     delve

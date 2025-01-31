@@ -122,6 +122,7 @@
       # Others
       asciinema
       flameshot
+      spicetify-cli
       nautilus
       libsForQt5.okular
       ffmpeg-full
@@ -172,7 +173,7 @@
       ollama
       telegram-desktop
       fzf
-      popcorntime
+      popcorntime stremio
       dunst
       libnotify
       openvr

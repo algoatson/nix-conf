@@ -4,9 +4,9 @@
   # Enable Theme
   environment.variables.GTK_THEME = "catppuccin-macchiato-lavender-standard+default";
   environment.variables.XCURSOR_THEME = "catppuccin-macchiato-lavender-cursors";
-  environment.variables.XCURSOR_SIZE = "28";
+  environment.variables.XCURSOR_SIZE = "22";
   environment.variables.HYPRCURSOR_THEME = "catppuccin-macchiato-lavender-cursors";
-  environment.variables.HYPRCURSOR_SIZE = "24";
+  environment.variables.HYPRCURSOR_SIZE = "22";
   qt.enable = true;
   qt.platformTheme = "gtk2";
   qt.style = "gtk2";
