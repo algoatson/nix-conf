@@ -123,6 +123,7 @@
       asciinema
       flameshot
       spicetify-cli
+      taskwarrior3
       nautilus
       libsForQt5.okular
       ffmpeg-full

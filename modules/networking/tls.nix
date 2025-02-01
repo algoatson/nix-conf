@@ -4,7 +4,7 @@
 {
   # SSL/TLS testing tools
   environment.systemPackages = with pkgs; [
-    cero
+    # cero
     sslscan
     ssldump
     sslsplit
